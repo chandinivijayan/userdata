@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test';
+  dctGlobalUser={}
+
+  constructor(){
+    // localStorage.setItem("dctGlobalUser",JSON.stringify(this.dctGlobalUser))
+
+  }
+  
 }

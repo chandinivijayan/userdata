@@ -1,0 +1,154 @@
+<div class="card">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Register New user</h4>
+            </div>
+        </div>
+        <form [formGroup]="regForm" novalidate>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="center-block">First Name:</label>
+                                <input class="form-control" formControlName="FirstName">
+                            </div>
+                            <div class="col-md-12">
+                                <div *ngIf="regForm.controls['FirstName'].invalid && (regForm.controls['FirstName'].dirty || regForm.controls['FirstName'].touched)" class="alert alert-danger">
+                                    <div *ngIf="regForm.controls['FirstName'].errors.required">
+                                    First Name is required.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="center-block">Second Name:</label>
+                                <input class="form-control" formControlName="SecondName">
+                            </div>
+                            <div class="col-md-12">
+                                <div *ngIf="regForm.controls['SecondName'].invalid && (regForm.controls['SecondName'].dirty || regForm.controls['SecondName'].touched)" class="alert alert-danger">
+                                    <div *ngIf="regForm.controls['SecondName'].errors.required">
+                                    Second Name is required.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="center-block">Email:</label>
+                                <input class="form-control" formControlName="userEmail">
+                            </div>
+                            <div class="col-md-12">
+                                <div *ngIf="regForm.controls['userEmail'].invalid && (regForm.controls['userEmail'].dirty || regForm.controls['userEmail'].touched)" class="alert alert-danger">
+                                    <div *ngIf="regForm.controls['userEmail'].errors.required">
+                                    Email is required.
+                                  </div>
+                                  <div *ngIf="regForm.controls['userEmail'].errors?.pattern">
+                                    Please provide a valid email
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="center-block">Mobile Number:</label>
+                                <input class="form-control" formControlName="mobileNumber">
+                            </div>
+                            <div class="col-md-12">
+                                <div *ngIf="regForm.controls['mobileNumber'].invalid && (regForm.controls['mobileNumber'].dirty || regForm.controls['mobileNumber'].touched)" class="alert alert-danger">
+                                    <div *ngIf="regForm.controls['mobileNumber'].errors.required">
+                                    Mobile Number is required.
+                                  </div>
+                                  <div *ngIf="regForm.controls['mobileNumber'].errors?.pattern">
+                                    Please provide a valid mobile number
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <label class="center-block col-md-12">Gender:</label><br>
+                            <div style="margin-left: 20px;">
+                                <input type="radio" class="" value="male"  name="gender" id="male" formControlName="gender">
+                                <label for="male">Male</label>
+                            </div>
+                            <div style="margin-left: 20px;">
+                            <input type="radio" class="" value="female"  name="gender" id="female" formControlName="gender">
+                            <label for="female">Female</label>
+                            </div>
+                            <div style="margin-left: 20px;">
+                            <input type="radio" class="" value="other"  name="gender" id="other" formControlName="gender">
+                            <label for="other">Other</label>
+                            </div>
+
+                    </div>
+                    
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="center-block">Address:</label>
+                            <textarea class="form-control" formControlName="address"></textarea>
+
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="center-block">Password:</label>
+                            <input type="password" class="form-control" formControlName="password">
+                        </div>
+                        <div class="col-md-12">
+                            <div *ngIf="regForm.controls['password'].invalid && (regForm.controls['password'].dirty || regForm.controls['password'].touched)" class="alert alert-danger">
+                                <div *ngIf="regForm.controls['password'].errors.required">
+                                password is required.
+                              </div>
+                              <div *ngIf="regForm.controls['password'].errors?.minlength">
+                                Minimum 8 characters is required
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label class="center-block">Confirm Password:</label>
+                            <input type="password" class="form-control" formControlName="confirmPassword">
+                        </div>
+                        <div class="col-md-12">
+                            <div *ngIf="regForm.controls['confirmPassword'].invalid && (regForm.controls['confirmPassword'].dirty || regForm.controls['confirmPassword'].touched)" class="alert alert-danger">
+                                <div *ngIf="regForm.controls['confirmPassword'].errors.required">
+                                Confirm Password is required.
+                              </div>
+                              <div *ngIf="regForm.controls['confirmPassword'].errors?.mustMatch">
+                                Passwords must match
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                        
+
+                    </div>
+                    <div class="col-md-6">
+                        
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" [disabled]="regForm['status']=='INVALID'" (click)="registerUser()">Register</button>&nbsp;&nbsp;
+                <button class="btn btn-secondary"  (click)="clearFields()">Cancel</button>
+            
+            </div>
+          </form>
+        
+    </div>
+</div>

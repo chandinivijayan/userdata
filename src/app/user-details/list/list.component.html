@@ -1,0 +1,78 @@
+<div class="row" class="head">
+    <div class="col-md-12">
+        <h4>Users List</h4>
+    </div>
+</div>
+<div class="row" class="rowbutton">
+    <div class="col-md-12">
+        <button class="btn btn-primary" (click)="createNewUser()">Add New User</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" [ngStyle]="{'display' : lstTableData.length > 0 ? 'block' : 'none'}">
+        <!-- <mat-form-field> -->
+            <span style="float:right" >
+                
+                    <label> Search</label>
+                    <input class="filter1"  matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+            </span>
+            
+        <!-- </mat-form-field> -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12" [ngStyle]="{'display' : lstTableData.length > 0 ? 'block' : 'none'}">
+        <mat-table [dataSource]="dataSource"  matSort>
+                    
+            
+                    <!-- number Column -->
+                    <ng-container matColumnDef="FirstName">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header='FirstName' >First Name</mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.FirstName}} </mat-cell>
+                    </ng-container>
+                   
+                    <!-- name Column -->
+                    <ng-container matColumnDef="SecondName">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header='SecondName'>Second Name </mat-header-cell>
+                        <mat-cell *matCellDef="let row" > {{row.SecondName }} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="userEmail">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header='userEmail'> Email </mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.userEmail }} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="mobileNumber">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header='mobileNumber'> Phone </mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.mobileNumber }} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="gender">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header='gender'> Gender </mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.gender }} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="address">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header='address'> Address </mat-header-cell>
+                        <mat-cell *matCellDef="let row">{{row.address }} </mat-cell>
+                    </ng-container>
+                    <ng-container matColumnDef="view">
+                        <mat-header-cell  *matHeaderCellDef> View </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button title="Delete"  class="btn btn-primary" (click)="deleteDetails(row)">Delete</button>
+                        </mat-cell>
+                    </ng-container>
+                    
+                    
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+                <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+                <!-- <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator> -->
+            </div>
+</div>
+<div class="row" *ngIf="lstTableData.length==0">
+    <div class="col-md-12" style="text-align: center;">
+    <p>No Data To Display</p>
+
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<div class="row" class="head">
+    <div class="col-md-12">
+        <h4>Upload File</h4>
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="myForm" >
+            <!-- <div class="row"> -->
+                <div class="form-group">
+                    <label for="photo">Photo</label>
+                    <input 
+                        formControlName="photo"
+                        id="photo" 
+                        type="file" 
+                        class="form-control"
+                        
+                        (change)="selectFile($event,'photo')" accept="image/*">
+                    <div *ngIf="f.photo.touched && f.photo.invalid" class="alert alert-danger">
+                        <div *ngIf="f.photo.errors.required">File is required.</div>
+                    </div>
+                </div>
+                <!-- <div class="col-md-4">
+                    <button class="btn btn-outline btn-secondary" (click)="saveFile()">Upload</button>
+                </div> -->
+
+            <!-- </div> -->
+
+            <!-- <div class="row"> -->
+                <div class="form-group">
+                    <label for="file">Resume</label>
+                    <input 
+                        formControlName="file"
+                        id="file" 
+                        type="file" 
+                        class="form-control"
+                        accept="application/pdf" 
+                        (change)="selectFile($event,'file')" >
+                </div>
+                <div class="form-group">
+                    <label for="certificate">Certificate</label>
+                    <input 
+                        formControlName="certificate"
+                        id="certificate" 
+                        type="file" 
+                        class="form-control"
+                        accept="application/pdf"
+                        (change)="selectFile($event,'certificate')" >
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-outline btn-secondary" (click)="saveFile()">Upload</button>
+                </div>
+
+            <!-- </div> -->
+
+            
+            <!-- <img [src]="imageSrc"  *ngIf="imageSrc" style="height: auto; width:100%"> -->
+                
+        </form>
+    </div>
+</div>

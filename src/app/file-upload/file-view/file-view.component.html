@@ -1,0 +1,36 @@
+<div class="row" class="head">
+    <div class="col-md-12">
+        <h4>Download File</h4>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <div class="row" style="margin-top: 15px" *ngIf="dctFilesData.hasOwnProperty('file')">
+            <div class="col-md-8" >
+                Resume
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" (click)="dowonload(dctFilesData['file'],'file')">Download</button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 15px" *ngIf="dctFilesData.hasOwnProperty('photo')">
+            <div class="col-md-8" >
+                Photo
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" (click)="dowonload(dctFilesData['photo'],'photo')">Download</button>
+            </div>
+        </div>
+        <div class="row" style="margin-top: 15px" *ngIf="dctFilesData.hasOwnProperty('certificate')">
+            <div class="col-md-8" >
+                Certificate
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-primary" (click)="dowonload(dctFilesData['certificate'],'certificate')">Download</button>
+            </div>
+        </div>
+
+        
+    </div>
+</div>

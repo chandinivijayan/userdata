@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.container {
+    padding: 20px;
+    position: relative;
+    padding-bottom: 100px;
+  }
+  
+  .mat-checkbox-layout {
+    display: inline !important;
+  }
+  
+  .label-header {
+    height: 13px;
+  }
+  
+  .box {
+    position: relative;
+  }
+  
+  .box-tip-shown .box-tips {
+    right: -20%;
+    margin-right:-20px;
+    padding-right: 0;
+  }
+
+  .input1{
+    border-radius: 6px;
+    border: 1px solid #2a4c6136;
+    width: 100%;
+  }
+  .head{
+    background: #44abb714;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px 7px 7px 7px;
+  }
+  h4{
+    color: #007bff;
+    background: #44abb714;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 7px 7px 7px 7px;
+  }
+  .rowbutton{
+    margin: 0px 10px 10px 0px;
+    background: #80808026;
+    padding-bottom: 5px;
+    padding-top: 5px;
+  }
